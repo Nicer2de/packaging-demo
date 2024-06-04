@@ -8,14 +8,14 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "python-course-package"
-authors = [{ name = "Eric Riddoch", email = "some-email@gmail.com" }]
+authors = [{ name = "Sirapob Sing", email = "some-email@gmail.com" }]
 description = "My package description"
 readme = "README.md"
-requires-python = ">=3.7"
+requires-python = ">=3.8"
 keywords = ["one", "two"]
 license = { text = "MIT" }
 classifiers = ["Programming Language :: Python :: 3"]
-dependencies = ["numpy", 'importlib-metadata; python_version<"3.8"']
+dependencies = ["numpy", 'importlib-metadata; python_version<"3.8"',]
 dynamic = ["version"]
 
 [project.optional-dependencies]
