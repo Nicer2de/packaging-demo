@@ -19,9 +19,9 @@ jobs:
           with:
             python-version: 3.8
         - run:
-            bin/bash run.sh install
-            bin/bash run.sh build
-            bin/bash run.sh publish:test
+            bin/bash ./run.sh install
+            bin/bash ./run.sh build
+            bin/bash ./run.sh publish:test
         #   env:
         #     TEST_PYPI_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
