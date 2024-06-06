@@ -26,7 +26,9 @@ function lint {
 }
 
 function lint:ci {
-    pre-commit run --all-files
+    # We skip no-commit-to-branch since that blocks commits to `main`.
+    # All merged PRs are commits to `main` so this must be disabled.
+    SKIP=no-commit-to-branch pre-commit run --all-files
 }
 
 function build {
