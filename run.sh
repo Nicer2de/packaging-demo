@@ -5,7 +5,12 @@ set -e
 
 THIS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" > /dev/null 2>&1 && pwd )"
 
-function load-dotenv {
+function try-load-dotenv {
+    if [ ! -f "$THIS_DIR/.env" ]; then
+        echo "no .env file found"
+        return 1
+    fi
+
     # Load the .env file (subshell, variables won't persist)
     source ".env"
     echo "Loaded environment variables from .env"
@@ -16,7 +21,7 @@ function install {
     python -m pip install --editable "$THIS_DIR/[dev]"
 }
 
-function lint {
+function lint:ci {
     pre-commit run --all-files
 }
 
@@ -37,7 +42,7 @@ function release:prod {
 }
 
 function publish:test {
-    load-dotenv
+    try-load-dotenv || true
     twine upload dist/* \
         --repository testpypi \
         --username=__token__ \
@@ -45,7 +50,7 @@ function publish:test {
 }
 
 function publish:test {
-    load-dotenv
+    try-load-dotenv || true
     twine upload dist/* \
         --repository pypi \
         --username=__token__ \

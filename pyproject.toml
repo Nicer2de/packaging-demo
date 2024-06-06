@@ -8,7 +8,6 @@ example_pkg = ["*.json"]
 
 [project]
 name = "packaging-demo-nice"
-version = "0.0.3"
 authors = [{ name = "Sirapob Sing", email = "some-email@gmail.com" },]
 description = "My package description"
 readme = "README.md"
@@ -17,7 +16,7 @@ keywords = ["one", "two"]
 license = { text = "MIT" }
 classifiers = ["Programming Language :: Python :: 3"]
 dependencies = ["numpy", 'importlib-metadata; python_version<"3.8"',]
-# dynamic = ["version"]
+dynamic = ["version"]
 
 [project.optional-dependencies]
 test = ["pytest", "pytest-cov"]
@@ -26,8 +25,8 @@ static-code-qa = ["pre-commit"]
 dev = ["packaging-demo-nice[test,release,static-code-qa]"]
 
 # docs: https://setuptools.pypa.io/en/latest/userguide/pyproject_config.html#dynamic-metadata
-# [tool.setuptools.dynamic]
-# version = { file = "version.txt" }
+[tool.setuptools.dynamic]
+version = { file = "version.txt" }
 
 [tool.pytest.ini_options]
 markers = ["slow: marks tests as slow (deselect with '-m \"not slow\"')"]
