@@ -21,6 +21,10 @@ function install {
     python -m pip install --editable "$THIS_DIR/[dev]"
 }
 
+function lint {
+    pre-commit run --all-files
+}
+
 function lint:ci {
     pre-commit run --all-files
 }
