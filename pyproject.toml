@@ -8,7 +8,7 @@ example_pkg = ["*.json"]
 
 [project]
 name = "packaging-demo-nice"
-authors = [{ name = "Sirapob Sing", email = "some-email@gmail.com" },]
+authors = [{ name = "Sirapob Sing", email = "nicesirapob@gmail.com" },]
 description = "My package description"
 readme = "README.md"
 requires-python = ">=3.8"
